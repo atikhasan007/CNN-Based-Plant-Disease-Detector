@@ -137,6 +137,4 @@ To improve accuracy and performance:
 
 ---
 
-## 📜 License
 
-This project is licensed under the MIT License.
