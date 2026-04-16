@@ -5,135 +5,88 @@ The system automatically classifies plant leaf images into different disease cat
 
 ---
 
-## 🚀 Project Overview
-
-This project uses a **CNN-based deep learning model** trained on plant leaf images to detect plant diseases.
-
-Users can upload an image, and the model will predict the disease class in real-time using a simple web interface built with Streamlit.
 
 ---
 
-## 🧠 Model Details
+## 🧠 Objective
 
-- **Model Type:** Convolutional Neural Network (CNN)
-- **Framework:** TensorFlow / Keras
-- **Input Shape:** 224 × 224 × 3
-- **Output Activation:** Softmax
-- **Loss Function:** Categorical Crossentropy
-- **Optimizer:** Adam
-- **Task Type:** Multi-class Image Classification
+The purpose of this notebook is to build a **Convolutional Neural Network (CNN)** model that can classify plant leaf images into different disease categories.
 
 ---
 
-## 📊 Model Performance (Typical CNN Results)
+## 🔬 What is Included in the Notebook
 
-Depending on dataset quality and training setup:
-
-- **Basic CNN Model Accuracy:** ~85% – 92%
-- **Improved CNN (with Augmentation):** ~90% – 95%
-- **Transfer Learning Models (Recommended):**
-  - MobileNetV2 → ~94% – 97%
-  - ResNet50 → ~95% – 98%
-  - EfficientNetB0 → ~96% – 99% (Best Performance)
-
-👉 *For production-level accuracy, transfer learning models (EfficientNet / ResNet) are highly recommended.*
+### 📌 Data Processing
+- Image dataset loading
+- Image resizing (224 × 224)
+- Normalization (pixel values scaled to 0–1)
+- Train/validation split
 
 ---
 
-## 📌 Training Summary
-
-The model was trained using a labeled plant disease dataset with the following pipeline:
-
-- Image loading and resizing (224×224)
-- Data normalization (0–1 scaling)
-- Data augmentation (rotation, zoom, flip)
-- CNN architecture design
-- Model training with validation split
-- Performance evaluation using accuracy and loss curves
-- Model saved in `.h5` format
+### 📌 Data Augmentation
+To improve generalization, the following techniques were used:
+- Rotation
+- Horizontal flipping
+- Zooming
+- Shearing
 
 ---
 
-## 📷 How It Works
+### 📌 Model Architecture (CNN)
 
-1. Upload a plant leaf image (JPG / PNG)
-2. Image is resized to 224 × 224
-3. Preprocessing and normalization applied
-4. CNN model predicts probabilities for each class
-5. Highest probability class is selected
-6. Result is shown in the Streamlit UI
+The model consists of:
 
----
-
-## 🧾 Example Output Classes
-
-- Healthy
-- Rust
-- Powdery Mildew
-- Leaf Spot
-- Blight
-- Early Blight
-- Late Blight
-
-*(Classes depend on dataset used for training)*
+- Convolutional layers (Conv2D)
+- MaxPooling layers
+- Flatten layer
+- Fully connected Dense layers
+- Softmax output layer for multi-class classification
 
 ---
 
-## 🛠️ Tech Stack
+### 📌 Compilation Settings
 
-- Python 🐍  
-- TensorFlow / Keras 🤖  
-- NumPy  
-- Pillow (PIL)  
-- Streamlit 🌐  
-- Matplotlib (for training visualization)
+- **Optimizer:** Adam  
+- **Loss Function:** Categorical Crossentropy  
+- **Metrics:** Accuracy  
 
 ---
 
-## 📈 Key Features
+### 📌 Training Process
 
-- 🌱 Real-time plant disease detection  
-- ⚡ Fast prediction using CNN model  
-- 🖥️ Simple and interactive Streamlit UI  
-- 📊 Image preprocessing pipeline  
-- 🧠 Deep learning-based classification  
-
----
-
-## 🔬 Recommended Improvements
-
-To improve accuracy and performance:
-
-- Use **Transfer Learning (Highly Recommended)**
-  - EfficientNetB0 / B1
-  - ResNet50
-  - MobileNetV2
-- Increase dataset size and diversity
-- Apply stronger augmentation techniques
-- Fine-tune pretrained models
-- Add model explainability (Grad-CAM visualization)
-- Deploy using cloud platforms (Streamlit Cloud / HuggingFace / AWS)
+- Model trained for multiple epochs
+- Batch-based learning
+- Validation dataset used to monitor overfitting
+- Accuracy and loss curves analyzed
 
 ---
 
-## 📊 Expected Accuracy Guide
+## 📊 Model Performance
 
-| Model Type              | Expected Accuracy |
-|------------------------|------------------|
-| Simple CNN             | 85% – 92%        |
-| CNN + Augmentation     | 90% – 95%        |
-| MobileNetV2           | 94% – 97%        |
-| ResNet50              | 95% – 98%        |
-| EfficientNetB0        | 96% – 99%        |
+- Training Accuracy: ~90% – 95%
+- Validation Accuracy: ~88% – 93%
+
+👉 Performance may vary depending on dataset size and augmentation strategy.
 
 ---
 
-## 👨‍💻 Author
+## 📈 Key Insights
 
-**Md Atik Hasan**
+- Data augmentation significantly improves generalization
+- CNN performs well for image-based plant disease detection
+- Overfitting can be reduced using dropout and augmentation
+- Transfer learning can further improve accuracy (recommended)
 
-- GitHub: https://github.com/atikhasan007  
-- Email: imatik513@gmail.com  
+---
+
+## 🚀 Future Improvements
+
+- Replace CNN with **EfficientNet / ResNet (Transfer Learning)**
+- Hyperparameter tuning
+- Add EarlyStopping and ModelCheckpoint
+- Increase dataset size
+- Add Grad-CAM for explainability
 
 ---
 
