@@ -71,6 +71,4 @@ The model shows good generalization on validation data:
 
 ---
 
-## 🖼️ Sample Prediction
 
-Example output:
