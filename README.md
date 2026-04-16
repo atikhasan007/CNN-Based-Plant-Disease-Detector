@@ -1,93 +1,76 @@
-# 🌿 CNN-Based Plant Disease Detector
+# 🌿 Plant Disease Prediction Using CNN (Deep Learning Project)
 
-A deep learning-based **Plant Disease Classification System** built using **Convolutional Neural Networks (CNN)** and deployed with a **Streamlit web application**.  
-The system automatically classifies plant leaf images into different disease categories to support early detection in agriculture.
-
----
-
+A deep learning-based image classification system that detects plant diseases from leaf images using a Convolutional Neural Network (CNN). The model is trained on the **PlantVillage Dataset** and can classify **38 different plant disease categories**.
 
 ---
 
-## 🧠 Objective
+## 🚀 Project Overview
 
-The purpose of this notebook is to build a **Convolutional Neural Network (CNN)** model that can classify plant leaf images into different disease categories.
+This project builds an end-to-end image classification pipeline:
 
----
-
-## 🔬 What is Included in the Notebook
-
-### 📌 Data Processing
-- Image dataset loading
-- Image resizing (224 × 224)
-- Normalization (pixel values scaled to 0–1)
-- Train/validation split
+- Dataset: PlantVillage (Color Images)
+- Model: Custom CNN (TensorFlow/Keras)
+- Task: Multi-class classification (38 classes)
+- Goal: Detect plant diseases from leaf images automatically
 
 ---
 
-### 📌 Data Augmentation
-To improve generalization, the following techniques were used:
-- Rotation
-- Horizontal flipping
-- Zooming
-- Shearing
+## 📂 Dataset Information
+
+- Dataset Source: Kaggle PlantVillage Dataset  
+- Total Classes: **38**
+- Image Types: RGB (Color images)
+- Input Size: 224 × 224 pixels
+
+Example classes:
+- Apple___Apple_scab  
+- Tomato___Late_blight  
+- Potato___Early_blight  
+- Grape___Black_rot  
+- Tomato___healthy  
 
 ---
 
-### 📌 Model Architecture (CNN)
+## 🧠 Model Architecture
 
-The model consists of:
+The CNN model consists of:
 
-- Convolutional layers (Conv2D)
-- MaxPooling layers
+- Conv2D (32 filters) + MaxPooling
+- Conv2D (64 filters) + MaxPooling
 - Flatten layer
-- Fully connected Dense layers
-- Softmax output layer for multi-class classification
+- Dense layer (256 neurons, ReLU)
+- Output layer (Softmax, 38 classes)
+
+### Loss Function:
+- Categorical Crossentropy  
+
+### Optimizer:
+- Adam  
 
 ---
 
-### 📌 Compilation Settings
+## 📊 Training Details
 
-- **Optimizer:** Adam  
-- **Loss Function:** Categorical Crossentropy  
-- **Metrics:** Accuracy  
+- Train/Validation Split: 80% / 20%
+- Batch Size: 32
+- Epochs: 5
+- Image Augmentation: Rescaling (1./255)
 
----
-
-### 📌 Training Process
-
-- Model trained for multiple epochs
-- Batch-based learning
-- Validation dataset used to monitor overfitting
-- Accuracy and loss curves analyzed
+### Performance:
+- Training Accuracy: ~97%
+- Validation Accuracy: ~88%
 
 ---
 
-## 📊 Model Performance
+## 📈 Results
 
-- Training Accuracy: ~90% – 95%
-- Validation Accuracy: ~88% – 93%
+The model shows good generalization on validation data:
 
-👉 Performance may vary depending on dataset size and augmentation strategy.
-
----
-
-## 📈 Key Insights
-
-- Data augmentation significantly improves generalization
-- CNN performs well for image-based plant disease detection
-- Overfitting can be reduced using dropout and augmentation
-- Transfer learning can further improve accuracy (recommended)
+- ✔ Validation Accuracy: **88.28%**
+- ✔ Low overfitting after training stabilization
 
 ---
 
-## 🚀 Future Improvements
+## 🖼️ Sample Prediction
 
-- Replace CNN with **EfficientNet / ResNet (Transfer Learning)**
-- Hyperparameter tuning
-- Add EarlyStopping and ModelCheckpoint
-- Increase dataset size
-- Add Grad-CAM for explainability
-
----
-
-
+Example output:
